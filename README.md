@@ -9,8 +9,7 @@ Project is basic spring boot skeleton with CRUD operation on mongoDB with Rest A
 
 #Run project
 1. start docker
-2. go to project root directory in terminal and run docker compose up
-   That's all!
+2. go to project root directory in terminal and run command "docker compose up"  That's all!
 
 Above command create 4 docker containers..
 1. Demo(spring boot service)
