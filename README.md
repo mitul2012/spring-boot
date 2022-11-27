@@ -1,5 +1,5 @@
 # Spring-boot-mongoDB CRUD operation
-Spring boot CRUD operation on mongoDB with Rest APis microservices, It also publishing newly added user to kafka topic with publisher and consumer in place,How to serialize/deserilize custom objects in kafka, everything runs inside docker as container.
+Spring boot CRUD operation on mongoDB with Rest APis microservices, It also publishing newly added user to kafka topic with publisher and consumer in place,How to serialize/deserilize custom objects in kafka, whole project runs as docker cotainer with all required deendent tools like mongo, kafka everything.
 
 #Required tools to run project
 1. java 8 or later version
