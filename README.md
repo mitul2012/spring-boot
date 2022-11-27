@@ -31,9 +31,9 @@ Above commnad create 5 docker containers..
 {
     "id":"1",
     "firstName":"Mitul",
-    "lastName":"Patel",
-    "userName":"mitul",
-    "password":"mitul123",
+    "lastName":"sanghani",
+    "userName":"test",
+    "password":"test123",
     "roles":[
         {
             "userId":"1",
@@ -46,6 +46,6 @@ Above commnad create 5 docker containers..
 }
 
 Note : except /auth and /save endpoint all other endpoint need to pass JWT token in Authorization header with Bearer prefix.
-        JQT token can be generated using /auth endpoint.
+        JWT token can be generated using /auth endpoint.
 
 
