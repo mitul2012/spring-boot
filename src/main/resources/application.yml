@@ -6,7 +6,7 @@ spring:
       servers: 127.0.0.1:29092
   data:
     mongodb:
-      uri: mongodb://mitul:mitul123@mongo:27017/demo?authSource=admin
+      uri: mongodb://test:test123@mongo:27017/demo?authSource=admin
 server:
   port: 8090
 kafka:
