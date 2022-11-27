@@ -10,8 +10,8 @@ services:
       options:
         max-size: 1g
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mitul
-      MONGO_INITDB_ROOT_PASSWORD: mitul123
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test123
       MONGO_INITDB_DATABASE: demo
 
   zookeeper:
