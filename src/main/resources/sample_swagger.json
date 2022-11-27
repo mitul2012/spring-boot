@@ -1,0 +1,71 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.1",
+    "title": "API title"
+  },
+  "host": "Base URL",
+  "schema": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/v1/getUser": {
+      "get":{
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "request",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "response":{
+          "200": {
+            "description": "ok",
+            "headers":{
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "Resource not found",
+            "headers":{
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "headers":{
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "v1/getDepartment": {
+
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+
+}

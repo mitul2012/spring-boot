@@ -1,0 +1,71 @@
+version: '3.7'
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
+    restart: always
+    logging:
+      options:
+        max-size: 1g
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mitul
+      MONGO_INITDB_ROOT_PASSWORD: mitul123
+      MONGO_INITDB_DATABASE: demo
+
+  zookeeper:
+    container_name: zookeeper
+    image: confluentinc/cp-zookeeper:latest
+    hostname: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  init-kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - kafka
+      - zookeeper
+    entrypoint: [ '/bin/sh', '-c' ]
+    command: |
+      "
+      # blocks until kafka is reachable
+      kafka-topics --bootstrap-server kafka:29092 --list
+      
+      echo -e 'Creating kafka topics'
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic myTopic --replication-factor 1 --partitions 1
+      
+      echo -e 'Successfully created the following topics:'
+      kafka-topics --bootstrap-server kafka:29092 --list
+      "
+  demo:
+    container_name: demo
+    depends_on:
+      - mongo
+      - kafka
+      - zookeeper
+      - init-kafka
+    build:
+      dockerfile: Dockerfile
+    image: demo
+    ports:
+      - 8090:8090
+
