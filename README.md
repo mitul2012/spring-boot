@@ -1,5 +1,5 @@
 # Spring-boot-mongoDB CRUD operation
-Project is basic spring boot skeleton with CRUD operation on mongoDB with Rest APis and also publishing newly added user to kafka topic, eeverything runs inside docker as container.
+Spring boot CRUD operation on mongoDB with Rest APis microservices, It also publishing newly added user to kafka topic with publisher and consumer in place,How to serialize/deserilize custom objects in kafka, everything runs inside docker as container.
 
 #Required tools to run project
 1. java 8 or later version
