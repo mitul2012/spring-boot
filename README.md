@@ -1,5 +1,5 @@
 # Spring-boot-mongoDB CRUD operation
-This project is basic spring boot skeleton with CRUD operation on mongoDB using Rest APis and also publishing newly added user to kafka topic.
+Project is basic spring boot skeleton with CRUD operation on mongoDB with Rest APis and also publishing newly added user to kafka topic, eeverything runs inside docker as container.
 
 #Required tools to run project
 1. java 8 or later version
@@ -12,7 +12,7 @@ This project is basic spring boot skeleton with CRUD operation on mongoDB using 
 2. go to project root directory in terminal and run docker compose up
    That's all!
 
-Above commnad create 5 docker containers..
+Above command create 4 docker containers..
 1. Demo(spring boot service)
 2. mongoDB
 3. kafka
